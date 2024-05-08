@@ -103,21 +103,21 @@ namespace Thirdweb.Examples
         {
             try
             {
-                // Contract contract = ThirdwebManager.Instance.SDK.GetContract(TOKEN_ERC1155_CONTRACT);
+                Contract contract = ThirdwebManager.Instance.SDK.GetContract(TOKEN_ERC1155_CONTRACT);
 
-                // NFTMetadata meta = new NFTMetadata()
-                // {
-                //     name = "Unity NFT",
-                //     description = "Minted From Unity",
-                //     image = "ipfs://QmbpciV7R5SSPb6aT9kEBAxoYoXBUsStJkMpxzymV4ZcVc",
-                // };
+                NFTMetadata meta = new NFTMetadata()
+                {
+                    name = "Unity NFT",
+                    description = "Minted From Unity",
+                    image = "ipfs://QmbpciV7R5SSPb6aT9kEBAxoYoXBUsStJkMpxzymV4ZcVc",
+                };
 
                 // Minting
                 // var result = await contract.ERC1155.Mint(new NFTMetadataWithSupply() { supply = 10, metadata = meta });
                 // Debugger.Instance.Log("[Mint ERC1155] Successful", result.ToString());
                 // You can use an existing token ID to mint additional supply
-                // var result = await contract.ERC1155.MintAdditionalSupply("0", 10);
-                // Debugger.Instance.Log("[Mint Additional Supply ERC1155] Successful", result.ToString());
+                var result = await contract.ERC1155.MintAdditionalSupply("0", 10);
+                Debugger.Instance.Log("[Mint Additional Supply ERC1155] Successful", result.ToString());
 
                 // Signature Minting
                 // var receiverAddress = await ThirdwebManager.Instance.SDK.Wallet.GetAddress();
@@ -147,10 +147,10 @@ namespace Thirdweb.Examples
                 // }
 
                 // Edition Drop Claiming
-                Debugger.Instance.Log("Request Sent", "Pending confirmation...");
-                Contract contract = ThirdwebManager.Instance.SDK.GetContract(DROP_ERC1155_CONTRACT);
-                TransactionResult transactionResult = await contract.ERC1155.Claim("0", 1);
-                Debugger.Instance.Log("[Claim ERC1155] Successful", transactionResult.ToString());
+                // Debugger.Instance.Log("Request Sent", "Pending confirmation...");
+                // Contract contract = ThirdwebManager.Instance.SDK.GetContract(DROP_ERC1155_CONTRACT);
+                // TransactionResult transactionResult = await contract.ERC1155.Claim("0", 1);
+                // Debugger.Instance.Log("[Claim ERC1155] Successful", transactionResult.ToString());
 
                 // Edition Drop - Signature minting additional supply
                 // var payload = new ERC1155MintAdditionalPayload("0xE79ee09bD47F4F5381dbbACaCff2040f2FbC5803", "1");
