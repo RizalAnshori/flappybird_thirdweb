@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using Thirdweb;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class StartScreen : MonoBehaviour
 {
+    [SerializeField] private string _initialClaimableNFTAddress = "0x94894F65d93eb124839C667Fc04F97723e5C4544";
+    
     [SerializeField] private UnityEvent _onInitialNFTNotClaimed;
     [SerializeField] private UnityEvent _onInitialNFTClaimed;
 
     public void OnWalletConnected(string walletAddress)
     {
-        FetchInitialNFT("0x94894F65d93eb124839C667Fc04F97723e5C4544");
+        FetchInitialNFT(_initialClaimableNFTAddress);
     }
 
     private async void FetchInitialNFT(string contractAddress)
@@ -68,5 +71,10 @@ public class StartScreen : MonoBehaviour
         var contract = ThirdwebManager.Instance.SDK.GetContract(contractAddress);
         var data = await contract.ERC1155.MintAdditionalSupply("0",1);
         Debug.Log(data);
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("Gameplay");
     }
 }

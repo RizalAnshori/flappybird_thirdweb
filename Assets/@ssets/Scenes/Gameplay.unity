@@ -2024,7 +2024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543334da846fa944fb5f14618afa63b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showUpChance: 10
+  showUpChance: 0
   pooler: {fileID: 714069386}
   berserkSprite: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
